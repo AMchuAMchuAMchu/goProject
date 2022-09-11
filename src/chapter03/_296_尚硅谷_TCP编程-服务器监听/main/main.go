@@ -37,7 +37,7 @@ func main() {
 			fmt.Println("果咩纳塞...>_<连接不上的说...", err)
 		} else {
 			fmt.Println("夏岛悬疑...", conn.RemoteAddr().String(), "已成功的连接上来的说^_^...")
-			process(conn)
+			go process(conn)
 		}
 
 	}

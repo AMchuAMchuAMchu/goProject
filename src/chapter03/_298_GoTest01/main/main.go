@@ -18,7 +18,18 @@ func main() {
 
 	start := time.Now().UnixMilli()
 
-	go add()
+	channel := make(chan bool, 1)
+	//add()
+	for i := 0; i < 6; i++ {
+		go add(channel)
+	}
+
+	for {
+		_, err := <-channel
+		if !err {
+			break
+		}
+	}
 
 	end := time.Now().UnixMilli()
 
@@ -26,8 +37,17 @@ func main() {
 
 }
 
-func add() {
+/**
+ * description==>TODO
+ * params==>
+ * return==>
+ * createTime==>2022/9/10 18:01
+ * author==>02雪乃赤瞳楪祈校条祭制作委员会 wyq_start
+ */
+func add(channel chan bool) {
 	tickets := 999999999
+	channel <- true
+	defer close(channel)
 	for {
 		tickets--
 		if tickets <= 0 {
