@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"strings"
 )
 
 /**
@@ -35,6 +36,13 @@ func main() {
 
 		if err != nil {
 			fmt.Println("bufioStr.ReadString Err ==> ", err)
+		}
+
+		message01 = strings.Trim(message01, "\n")
+
+		if message01 == "exit" {
+			fmt.Println("bye bye ...")
+			return
 		}
 
 		writeLength, err := conn.Write([]byte(message01))

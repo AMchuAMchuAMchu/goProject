@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"net"
-	"time"
 )
 
 /**
@@ -49,7 +48,10 @@ func process(conn net.Conn) {
 
 	defer conn.Close()
 
+	times := 0
+
 	for {
+		times++
 
 		buf := make([]byte, 1024)
 
@@ -62,7 +64,7 @@ func process(conn net.Conn) {
 			return
 		}
 
-		fmt.Println("服务器读取到客户端::", conn.RemoteAddr().String(), "的信息是==>", string(buf))
+		fmt.Println("服务器读取到客户端第", times, "条信息::", conn.RemoteAddr().String(), "的信息是==>", string(buf))
 
 	}
 
