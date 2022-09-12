@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net"
+	"time"
 )
 
 /**
@@ -58,6 +59,7 @@ func process(conn net.Conn) {
 
 		if err != nil {
 			fmt.Println("conn.Read Err ==> ", err)
+			return
 		}
 
 		fmt.Println("服务器读取到客户端::", conn.RemoteAddr().String(), "的信息是==>", string(buf))
