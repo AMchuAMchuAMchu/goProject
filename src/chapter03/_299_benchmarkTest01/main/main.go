@@ -1,4 +1,4 @@
-package _299_benchmarkTest01
+package main
 
 import (
 	"fmt"
@@ -17,11 +17,12 @@ import (
 func main() {
 
 	start := time.Now().UnixMilli()
-	for i := 1; i < 999999999; i++ {
+	for i := 1; i <= 999999999; i++ {
 
 	}
 	end := time.Now().UnixMilli()
 
 	fmt.Println("耗时:", end-start, "毫秒...") //
+	//耗时: 277 毫秒...耗时: 262 毫秒...耗时: 248 毫秒...
 
 }
