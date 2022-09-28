@@ -19,13 +19,6 @@ func main() {
 			fmt.Println(i)
 		}
 
-		n4 := i / 100
-		n5 := i % 100 / 10
-		n6 := i % 10
-		if n4*n4*n4+n5*n5*n5+n6*n6*n6 == i {
-			fmt.Println(i)
-		}
-
 	}
 
 }
